@@ -30,16 +30,10 @@ public class RomanNumeralsConverter {
   }
 
   public String convert (int arabicNumberToConvert) {
-    return constructRomanNumeralStringUsingBaseValues(arabicNumberToConvert);
+    return romanNumeral(arabicNumberToConvert);
   }
 
-//  private String convert(int arabicNumberToConvert,
-//                         String convertedNumberString) {
-//    return constructRomanNumeralStringUsingBaseValues (arabicNumberToConvert,
-//      convertedNumberString);
-//  }
-
-  private String constructRomanNumeralStringUsingBaseValues(int arabicNumberToConvert) {
+  private String romanNumeral(int arabicNumberToConvert) {
     int nearestBaseValue = findNearestBaseValue(arabicNumberToConvert);
     int numberOfBasesInTheArabicNumber = arabicNumberToConvert / nearestBaseValue;
     int numberRemainingAfterLargestBaseHasBeenDeducted =
@@ -59,7 +53,8 @@ public class RomanNumeralsConverter {
     return this.romanNumeralString;
   }
 
-  private String repeatBaseValue (int nearestBaseValue, int numberOfBasesInTheArabicNumber) {
+  private String repeatBaseValue (int nearestBaseValue,
+                                  int numberOfBasesInTheArabicNumber) {
     return Stream.generate(() -> BASE_VALUES_MAP.get(nearestBaseValue))
       .limit(numberOfBasesInTheArabicNumber)
       .collect(joining());
