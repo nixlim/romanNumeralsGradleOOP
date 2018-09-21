@@ -11,6 +11,7 @@ allow the programmer's intention to be clear from the code - **_PENDING_**
 3. Implementation of PI mutation testing - **_SET UP IMPLEMENTED BUT DOES NOT 
 WORK AS INTENTED_**
 4. TDD - **_ALWAYS_**
+5. Gradle project set-up - **_DONE_**
 
 ## Running Tests
 
