@@ -18,5 +18,5 @@ WORK AS INTENTED_**
 1. Clone repo
 2. Run `gradle build`
 3. Run `gradle test` - Will run Unit Tests
-4. Run `gradle pitest` - Should run mutation tests, but does not work 
+4. Run `gradle pitest` - Should run Mutation Tests, but does not work 
 properly at the moment
