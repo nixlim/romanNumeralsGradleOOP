@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+            }
+        dependencies {
+            classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.2.2'
+        }
+    }
+}
+
+plugins {
+    id 'java'
+    id "info.solidsoft.pitest" version "1.2.4"
+    id 'idea'
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testCompile "junit:junit:4.12"
+}
+
+group 'com.learningjava.kata'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+apply plugin: "info.solidsoft.pitest"
+apply plugin: 'java'
+apply plugin: 'idea'
+
+pitest {
+    //println sourceSets.main
+    targetClasses = ['romanNumeralsGradle.*']  //by default "${project.group}.*"
+    targetTests  = ['*Test*']
+    //mutators = ["INCREMENTS", "INVERT_NEGS", "MATH", "NEGATE_CONDITIONALS", "RETURN_VALS", "VOID_METHOD_CALLS", "CONDITIONALS_BOUNDARY", "EXPERIMENTAL_SWITCH", "REMOVE_CONDITIONALS", "INLINE_CONSTS"]
+    threads = 2
+    outputFormats = ['XML','HTML']
+    verbose = false
+}
